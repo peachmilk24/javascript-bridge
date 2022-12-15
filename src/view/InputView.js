@@ -54,7 +54,7 @@ const InputView = {
     } catch (error) {
       this.checkUserError(error);
       Console.print(error.message);
-      this.readBridgeSize();
+      this.readMoving();
     }
   },
 
