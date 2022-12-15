@@ -11,6 +11,11 @@ class GameController {
     OutputView.printStart();
     const size = InputView.readBridgeSize();
     this.bridgeGame.make(size);
+    this.orderMoving();
+  }
+
+  orderMoving() {
+    const direction = InputView.readMoving();
   }
 }
 

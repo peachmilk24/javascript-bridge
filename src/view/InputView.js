@@ -1,6 +1,7 @@
 const { Console } = require('@woowacourse/mission-utils');
 const Message = require('../constant/InputMessage');
 const BridgeSize = require('../model/BridgeSize');
+const Direction = require('../model/Direction');
 const UserError = require('../util/UserError');
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
@@ -22,7 +23,15 @@ const InputView = {
   /**
    * 사용자가 이동할 칸을 입력받는다.
    */
-  readMoving() {},
+  readMoving() {
+    let direction = '';
+    Console.readLine(Message.INPUT_DIRECTION, answer => {
+      this.validateDirection(answer);
+      direction = answer;
+    });
+    Console.print(direction);
+    return direction;
+  },
 
   /**
    * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
@@ -34,7 +43,17 @@ const InputView = {
       const inputSize = new BridgeSize(size);
     } catch (error) {
       this.checkUserError(error);
-      Console.print(error);
+      Console.print(error.message);
+      this.readBridgeSize();
+    }
+  },
+
+  validateDirection(direction) {
+    try {
+      const inputDirection = new Direction(direction);
+    } catch (error) {
+      this.checkUserError(error);
+      Console.print(error.message);
       this.readBridgeSize();
     }
   },
