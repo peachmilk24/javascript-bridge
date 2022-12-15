@@ -2,8 +2,8 @@ const GameController = require('./controller/GameController');
 
 class App {
   play() {
-    const bridgeGame = new GameController();
-    bridgeGame.start();
+    const controller = new GameController();
+    controller.start();
   }
 }
 
