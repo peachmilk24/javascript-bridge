@@ -20,6 +20,7 @@ class GameController {
   orderMoving() {
     const direction = InputView.readMoving();
     const moveResult = this.bridgeGame.move(direction);
+    OutputView.printMap(moveResult);
   }
 }
 
