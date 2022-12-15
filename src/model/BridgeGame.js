@@ -1,5 +1,7 @@
 const { makeBridge } = require('../BridgeMaker');
 const { generate } = require('../BridgeRandomNumberGenerator');
+const VALID_VALUE = require('../constant/ValidValue');
+const Moving = require('./Moving');
 
 /**
  * 다리 건너기 게임을 관리하는 클래스
@@ -9,9 +11,16 @@ class BridgeGame {
 
   #bridge;
 
+  #position;
+
+  #moving;
+
   constructor() {
     this.#size = 0;
     this.#bridge = [];
+    this.#position = 0;
+    this.#moving = new Moving();
+    console.log(this.#moving.getMoving());
   }
 
   make(size) {
@@ -24,7 +33,17 @@ class BridgeGame {
    * <p>
    * 이동을 위해 필요한 메서드의 반환 값(return value), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
    */
-  move() {}
+  move(direction) {
+    if (direction === VALID_VALUE.DIRECTION.UP) {
+      this.#moving.moveUp(direction, this.#bridge);
+      console.log('up', this.#moving.getMoving());
+    }
+    if (direction === VALID_VALUE.DIRECTION.DOWN) {
+      this.#moving.moveDown(direction, this.#bridge);
+      console.log('down', this.#moving.getMoving());
+    }
+    return this.#moving.getMoving();
+  }
 
   /**
    * 사용자가 게임을 다시 시도할 때 사용하는 메서드
