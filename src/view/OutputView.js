@@ -46,6 +46,10 @@ const OutputView = {
     }
     Console.print(`${Message.RESULT}${successResult}`);
   },
+
+  printTrysCount(count) {
+    Console.print(`${Message.TRY_COUNT}${count} 회`);
+  },
 };
 
 module.exports = OutputView;
