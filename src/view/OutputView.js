@@ -24,7 +24,17 @@ const OutputView = {
    * <p>
    * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
    */
-  printResult() {},
+  printResult(moveResult, count) {
+    const [map, result, position] = [...moveResult];
+    this.printFinalMap(map);
+    this.printFinalResult(result);
+    this.printTrysCount(count);
+  },
+
+  printFinalMap(map) {
+    Console.print(Message.FINAL_MAP);
+    this.printMap(map);
+  },
 };
 
 module.exports = OutputView;

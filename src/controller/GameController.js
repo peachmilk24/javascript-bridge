@@ -32,7 +32,10 @@ class GameController {
   checkResult(moveResult, size, bridge) {
     const [map, result, position] = [...moveResult];
     if (result && position < +size) this.orderMoving(bridge, size);
-    if (result && position === +size) OutputView.printResult(moveResult);
+    if (result && position === +size) {
+      const count = this.#bridgeGame.getCount();
+      OutputView.printResult(moveResult, count);
+    }
     if (!result) this.askRetry(bridge, size, moveResult);
   }
 
@@ -41,10 +44,10 @@ class GameController {
     if (command === ValidValue.COMMAND.RETRY) {
       this.#bridgeGame.retry();
       this.orderMoving(bridge, size);
+      return;
     }
-    if (command === ValidValue.COMMAND.QUIT) {
-      OutputView.printResult(moveResult);
-    }
+    const count = this.#bridgeGame.getCount();
+    OutputView.printResult(moveResult, count);
   }
 }
 

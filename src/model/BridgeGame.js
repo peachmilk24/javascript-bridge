@@ -51,6 +51,10 @@ class BridgeGame {
     this.#movingState = new MovingState();
     this.#count += 1;
   }
+
+  getCount() {
+    return this.#count;
+  }
 }
 
 module.exports = BridgeGame;
