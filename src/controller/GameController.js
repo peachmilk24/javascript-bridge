@@ -1,3 +1,4 @@
+const VALID_VALUE = require('../constant/ValidValue');
 const BridgeGame = require('../model/BridgeGame');
 const InputView = require('../view/InputView');
 const OutputView = require('../view/OutputView');
@@ -30,14 +31,17 @@ class GameController {
       this.orderMoving(size);
     }
     if (moveResult[1] === false) {
-      this.askRetry();
+      this.askRetry(size);
     }
   }
 
-  askRetry() {
+  askRetry(size) {
     const command = InputView.readGameCommand();
+    if (command === VALID_VALUE.COMMAND.RETRY) {
+      this.bridgeGame.retry();
+      this.orderMoving(size);
+    }
   }
-  this.bridgeGame.retry();
 }
 
 module.exports = GameController;
