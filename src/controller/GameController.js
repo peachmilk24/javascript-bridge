@@ -32,8 +32,10 @@ class GameController {
     const [map, result, position] = [...moveResult];
     if (result && position < +size) this.orderMoving(bridge, size);
     if (result && position === +size) OutputView.printResult();
-    // if (!result) console.log('quit');
+    if (!result) this.askRetry();
   }
+
+  askRetry() {}
 }
 
 module.exports = GameController;
