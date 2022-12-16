@@ -35,7 +35,9 @@ class GameController {
     if (!result) this.askRetry();
   }
 
-  askRetry() {}
+  askRetry() {
+    const command = InputView.readGameCommand();
+  }
 }
 
 module.exports = GameController;
