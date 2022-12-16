@@ -22,6 +22,7 @@ class MovingState {
       this.setStateUpX();
     }
     this.#position += 1;
+    return [this.#state, this.#result, this.#position];
   }
 
   moveDown(direction, bridge) {
@@ -32,6 +33,7 @@ class MovingState {
       this.setStateDownX();
     }
     this.#position += 1;
+    return [this.#state, this.#result, this.#position];
   }
 
   checkDirection(direction, bridge) {
