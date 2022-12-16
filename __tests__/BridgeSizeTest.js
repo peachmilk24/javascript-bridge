@@ -9,7 +9,7 @@ describe('다리 사이즈 예외 테스트', () => {
       }).toThrow('[ERROR]');
     },
   );
-  test.each(['', ' ', 'one', '하나'])(
+  test.each(['', ' ', 'one', '하나', 'a'])(
     '숫자가 아니면 예외가 발생한다.',
     input => {
       expect(input => {
