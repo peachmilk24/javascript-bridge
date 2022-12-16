@@ -33,6 +33,9 @@ class GameController {
     if (moveResult[1] === false) {
       this.askRetry(size);
     }
+    if (moveResult[1] === true && moveResult[2] === +size) {
+      OutputView.printResult();
+    }
   }
 
   askRetry(size) {
@@ -40,6 +43,9 @@ class GameController {
     if (command === VALID_VALUE.COMMAND.RETRY) {
       this.bridgeGame.retry();
       this.orderMoving(size);
+    }
+    if (command === VALID_VALUE.COMMAND.QUIT) {
+      OutputView.printResult();
     }
   }
 }
