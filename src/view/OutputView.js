@@ -25,7 +25,7 @@ const OutputView = {
    * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
    */
   printResult(moveResult, count) {
-    const [map, result, position] = [...moveResult];
+    const [map, result] = [...moveResult];
     this.printFinalMap(map);
     this.printFinalResult(result);
     this.printTrysCount(count);
@@ -34,6 +34,17 @@ const OutputView = {
   printFinalMap(map) {
     Console.print(Message.FINAL_MAP);
     this.printMap(map);
+  },
+
+  printFinalResult(result) {
+    let successResult = '';
+    if (result === true) {
+      successResult = Message.SUCCESS;
+    }
+    if (result === false) {
+      successResult = Message.FAIL;
+    }
+    Console.print(`${Message.RESULT}${successResult}`);
   },
 };
 
