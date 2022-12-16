@@ -13,6 +13,7 @@ const InputView = {
     let size = 0;
     Console.readLine(Message.INPUT_SIZE, answer => {
       this.validateSize(answer);
+      Console.print(answer);
       size = answer;
     });
     return size;
@@ -21,7 +22,15 @@ const InputView = {
   /**
    * 사용자가 이동할 칸을 입력받는다.
    */
-  readMoving() {},
+  readMoving() {
+    let direction = '';
+    Console.readLine(Message.INPUT_DIRECTION, answer => {
+      this.validateDirection(answer);
+      Console.print(answer);
+      direction = answer;
+    });
+    return direction;
+  },
 
   /**
    * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
