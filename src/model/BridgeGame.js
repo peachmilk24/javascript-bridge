@@ -20,13 +20,11 @@ class BridgeGame {
     this.#bridge = [];
     this.#moving = new Moving();
     this.#count = 1;
-    console.log(this.#moving.getMoving());
   }
 
   make(size) {
     this.#size = Number(size);
     this.#bridge = makeBridge(size, generate);
-    console.log('make', this.#bridge, size);
   }
 
   /**
@@ -37,11 +35,9 @@ class BridgeGame {
   move(direction) {
     if (direction === VALID_VALUE.DIRECTION.UP) {
       this.#moving.moveUp(direction, this.#bridge);
-      console.log('up', this.#moving.getMoving());
     }
     if (direction === VALID_VALUE.DIRECTION.DOWN) {
       this.#moving.moveDown(direction, this.#bridge);
-      console.log('down', this.#moving.getMoving());
     }
     return this.#moving.getMoving();
   }

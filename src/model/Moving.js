@@ -15,7 +15,6 @@ class Moving {
   }
 
   moveUp(direction, bridge) {
-    console.log(direction, bridge);
     if (this.checkRightResult(direction, bridge)) {
       this.setStateUpO();
       return;
@@ -24,7 +23,6 @@ class Moving {
   }
 
   moveDown(direction, bridge) {
-    console.log(direction, bridge);
     if (this.checkRightResult(direction, bridge)) {
       this.setStateDownO();
       return;

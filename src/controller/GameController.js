@@ -9,7 +9,6 @@ class GameController {
   }
 
   start() {
-    console.log('start');
     OutputView.printStart();
     const size = InputView.readBridgeSize();
     if (isNaN(size)) {
