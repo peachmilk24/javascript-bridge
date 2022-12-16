@@ -30,7 +30,7 @@ class GameController {
       this.orderMoving(size);
     }
     if (moveResult[1] === false) {
-      this.askRetry(size);
+      this.askRetry(moveResult, size);
     }
     if (moveResult[1] === true && moveResult[2] === +size) {
       const count = this.bridgeGame.getCount();
@@ -38,14 +38,15 @@ class GameController {
     }
   }
 
-  askRetry(size) {
+  askRetry(moveResult, size) {
     const command = InputView.readGameCommand();
     if (command === VALID_VALUE.COMMAND.RETRY) {
       this.bridgeGame.retry();
       this.orderMoving(size);
     }
     if (command === VALID_VALUE.COMMAND.QUIT) {
-      OutputView.printResult();
+      const count = this.bridgeGame.getCount();
+      OutputView.printResult(moveResult, count);
     }
   }
 }
