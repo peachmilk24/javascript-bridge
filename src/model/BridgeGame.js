@@ -11,13 +11,17 @@ class BridgeGame {
 
   #movingState;
 
+  #count;
+
   constructor() {
     this.#bridge = [];
     this.#movingState = new MovingState();
+    this.#count = 1;
   }
 
   make(size) {
     this.#bridge = makeBridge(size, generate);
+    console.log('make', this.#bridge);
     return this.#bridge;
   }
 
@@ -28,6 +32,7 @@ class BridgeGame {
    */
   move(direction, bridge) {
     let moveResult;
+    console.log(direction, bridge, moveResult);
     if (direction === ValidValue.DIRECTION.UP) {
       moveResult = this.#movingState.moveUp(direction, bridge);
     }
@@ -42,7 +47,10 @@ class BridgeGame {
    * <p>
    * 재시작을 위해 필요한 메서드의 반환 값(return value), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
    */
-  retry() {}
+  retry() {
+    this.#movingState = new MovingState();
+    this.#count += 1;
+  }
 }
 
 module.exports = BridgeGame;
