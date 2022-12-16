@@ -30,7 +30,7 @@ class GameController {
 
   checkResult(moveResult, size, bridge) {
     const [map, result, position] = [...moveResult];
-    // if (result && position < +size) this.orderMoving(bridge, size);
+    if (result && position < +size) this.orderMoving(bridge, size);
     if (result && position === +size) OutputView.printResult();
     // if (!result) console.log('quit');
   }
