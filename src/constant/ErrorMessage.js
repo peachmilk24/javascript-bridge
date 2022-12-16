@@ -1,0 +1,5 @@
+const Error = {
+  SIZE_RANGE: '[ERROR] 3이상 20이하의 숫자를 입력해야 합니다.',
+};
+
+module.exports = Error;
