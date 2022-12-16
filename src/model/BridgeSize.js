@@ -7,11 +7,12 @@ class BridgeSize {
 
   constructor(size) {
     this.#size = +size;
-    this.validate();
+    this.validate(size);
   }
 
-  validate() {
+  validate(size) {
     this.checkRange();
+    this.isNumber(size);
   }
 
   checkRange() {
@@ -22,6 +23,12 @@ class BridgeSize {
       return;
     }
     throw new UserError(Error.SIZE_RANGE);
+  }
+
+  isNumber(size) {
+    if (isNaN(size)) {
+      throw new UserError(Error.NOT_NUMBER);
+    }
   }
 }
 
