@@ -55,6 +55,10 @@ class BridgeGame {
     this.#moving = new Moving();
     this.#count += 1;
   }
+
+  getCount() {
+    return this.#count;
+  }
 }
 
 module.exports = BridgeGame;

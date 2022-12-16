@@ -34,7 +34,8 @@ class GameController {
       this.askRetry(size);
     }
     if (moveResult[1] === true && moveResult[2] === +size) {
-      OutputView.printResult();
+      const count = this.bridgeGame.getCount();
+      OutputView.printResult(moveResult, count);
     }
   }
 
