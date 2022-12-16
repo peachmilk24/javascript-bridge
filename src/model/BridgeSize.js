@@ -13,6 +13,7 @@ class BridgeSize {
   validate(size) {
     this.checkRange();
     this.isNumber(size);
+    this.isInteger();
   }
 
   checkRange() {
@@ -29,6 +30,13 @@ class BridgeSize {
     if (isNaN(size)) {
       throw new UserError(Error.NOT_NUMBER);
     }
+  }
+
+  isInteger() {
+    if (this.#size % 1 === 0) {
+      return;
+    }
+    throw new UserError(Error.NOT_INTEGER);
   }
 }
 
