@@ -17,6 +17,7 @@ class GameController {
 
   makeBridge() {
     const size = InputView.readBridgeSize();
+    if (isNaN(size)) return;
     const bridge = this.#bridgeGame.make(size);
     this.orderMoving(bridge, size);
   }
