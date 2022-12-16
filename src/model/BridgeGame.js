@@ -1,5 +1,5 @@
 const { makeBridge } = require('../BridgeMaker');
-const { generator } = require('../BridgeRandomNumberGenerator');
+const { generate } = require('../BridgeRandomNumberGenerator');
 
 /**
  * 다리 건너기 게임을 관리하는 클래스
@@ -12,7 +12,7 @@ class BridgeGame {
   }
 
   make(size) {
-    this.#bridge = makeBridge(size, generator);
+    this.#bridge = makeBridge(size, generate);
     return this.#bridge;
   }
 
