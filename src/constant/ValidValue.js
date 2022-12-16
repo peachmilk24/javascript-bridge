@@ -7,6 +7,10 @@ const ValidValue = {
     UP: 'U',
     DOWN: 'D',
   },
+  COMMAND: {
+    RETRY: 'R',
+    QUIT: 'Q',
+  },
 };
 
 module.exports = ValidValue;

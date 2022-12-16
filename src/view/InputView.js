@@ -66,6 +66,16 @@ const InputView = {
     }
   },
 
+  validateCommand(command) {
+    try {
+      const inputCommand = new Command(command);
+    } catch (error) {
+      this.isUserError(error);
+      Console.print(error.message);
+      this.readGameCommand();
+    }
+  },
+
   isUserError(error) {
     if (error instanceof UserError) {
       return;
