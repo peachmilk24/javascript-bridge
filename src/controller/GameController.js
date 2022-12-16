@@ -1,6 +1,5 @@
 const BridgeGame = require('../model/BridgeGame');
 const InputView = require('../view/InputView');
-const { printResult } = require('../view/OutputView');
 const OutputView = require('../view/OutputView');
 
 class GameController {
@@ -30,7 +29,15 @@ class GameController {
     if (moveResult[1] === true && moveResult[2] < +size) {
       this.orderMoving(size);
     }
+    if (moveResult[1] === false) {
+      this.askRetry();
+    }
   }
+
+  askRetry() {
+    const command = InputView.readGameCommand();
+  }
+  this.bridgeGame.retry();
 }
 
 module.exports = GameController;
