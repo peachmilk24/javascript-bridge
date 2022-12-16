@@ -3,6 +3,7 @@ const UserError = require('../../../../javascript-bridge/src/util/UserError');
 const MoveDirection = require('../model/MoveDirection');
 const Message = require('../constant/PrintMessage');
 const BridgeSize = require('../model/BridgeSize');
+const Command = require('../model/Command');
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
  */
