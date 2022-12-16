@@ -21,7 +21,6 @@ class BridgeGame {
 
   make(size) {
     this.#bridge = makeBridge(size, generate);
-    console.log('make', this.#bridge);
     return this.#bridge;
   }
 
@@ -32,7 +31,6 @@ class BridgeGame {
    */
   move(direction, bridge) {
     let moveResult;
-    console.log(direction, bridge, moveResult);
     if (direction === ValidValue.DIRECTION.UP) {
       moveResult = this.#movingState.moveUp(direction, bridge);
     }
