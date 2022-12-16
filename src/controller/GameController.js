@@ -17,14 +17,22 @@ class GameController {
   makeBridge() {
     const size = InputView.readBridgeSize();
     const bridge = this.#bridgeGame.make(size);
-    this.orderMoving(bridge);
+    this.orderMoving(bridge, size);
   }
 
-  orderMoving(bridge) {
+  orderMoving(bridge, size) {
     const direction = InputView.readMoving();
     const moveResult = this.#bridgeGame.move(direction, bridge);
     const map = moveResult[0];
     OutputView.printMap(map);
+    this.checkResult(moveResult, size, bridge);
+  }
+
+  checkResult(moveResult, size, bridge) {
+    const [map, result, position] = [...moveResult];
+    // if (result && position < +size) this.orderMoving(bridge, size);
+    if (result && position === +size) OutputView.printResult();
+    // if (!result) console.log('quit');
   }
 }
 
