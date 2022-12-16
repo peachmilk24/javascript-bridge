@@ -32,19 +32,18 @@ class GameController {
   checkResult(moveResult, size, bridge) {
     const [map, result, position] = [...moveResult];
     if (result && position < +size) this.orderMoving(bridge, size);
-    if (result && position === +size) OutputView.printResult();
-    if (!result) this.askRetry(bridge, size);
+    if (result && position === +size) OutputView.printResult(moveResult);
+    if (!result) this.askRetry(bridge, size, moveResult);
   }
 
-  askRetry(bridge, size) {
+  askRetry(bridge, size, moveResult) {
     const command = InputView.readGameCommand();
-    this.checkCommand(command, bridge, size);
-  }
-
-  checkCommand(command, bridge, size) {
     if (command === ValidValue.COMMAND.RETRY) {
       this.#bridgeGame.retry();
       this.orderMoving(bridge, size);
+    }
+    if (command === ValidValue.COMMAND.QUIT) {
+      OutputView.printResult(moveResult);
     }
   }
 }
