@@ -1,5 +1,6 @@
 const { Console } = require('@woowacourse/mission-utils');
 const UserError = require('../../../../javascript-bridge/src/util/UserError');
+const MoveDirection = require('../model/MoveDirection');
 const Message = require('../constant/PrintMessage');
 const BridgeSize = require('../model/BridgeSize');
 /**
@@ -44,6 +45,16 @@ const InputView = {
       this.isUserError(error);
       Console.print(error.message);
       this.readBridgeSize();
+    }
+  },
+
+  validateDirection(direction) {
+    try {
+      const inputDirection = new MoveDirection(direction);
+    } catch (error) {
+      this.isUserError(error);
+      Console.print(error.message);
+      this.readMoving();
     }
   },
 
